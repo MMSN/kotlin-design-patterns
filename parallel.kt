@@ -23,7 +23,10 @@ fun main() {
 
   // TODO: Inicie cada Thread para começar o processo de "download" paralelamente.
   // TODO: Aguarde até que todas as Threads terminem suas respectivas execuções.
-  threads.forEach { thread -> thread.start() }
+  threads.forEach { thread ->
+      thread.start()
+      thread.join()
+  }
 
   // Sort results by index to print in the correct order
   results.sortedBy { it.first }.forEachIndexed { idx, result ->
